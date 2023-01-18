@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="GEACEX: gestión de actividades extraescolares. TFG en desarrollo web del grado de informática de UOC" />
+        <meta name="author" content="Miguel Pascual Armero" />
+        {% block title %}<title>Inicio</title>{% endblock %}
+        {% load static %}
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon-16x16.png' %}">
+        <link rel="manifest" href="{% static 'img/site.webmanifest' %}">
+        <script src="https://kit.fontawesome.com/3b28d581ce.js" crossorigin="anonymous"></script>
+        
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    </head>
+    <body>
+        {% block navbar %}
+        <!--Barra de navegación responsive-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container px-5">
+                <a class="navbar-brand" href="{% url 'index' %}">GEACEX</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="{% url 'centrologin' %}">Centros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'tutorlogin' %}">Tutores</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'proveedorlogin' %}">Proveedores</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        {% endblock %}
+
+        {% block content %}
+        <!-- Bloque de contenido -->
+        {% endblock %}
+
+        {% block footer %}
+        <!-- Bloque de footer -->
+        <footer class="py-5 bg-dark">
+            <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">GEACEX 2022</p></div>
+        </footer>
+        {% endblock %}
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+      </body>
+</html>

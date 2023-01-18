@@ -1,0 +1,53 @@
+{% extends "base_area.html" %}
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block content %}
+<section class="">
+    <!-- Jumbotron -->
+    <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-color: hsl(0, 0%, 96%)">
+      <div class="container">
+        <div class="row gx-lg-5 align-items-center justify-content-center">
+          <div class="col-lg-9 mb-5 mb-lg-0">
+            <div class="card">
+              <div class="card-body py-5 px-md-5">
+                <h5>Calendario: {{ grupo.calendario }}</h5>
+                <h4>Grupo: {{ grupo.actividad }}</h4>
+                <hr/>
+                </table>
+                <h4 class="card-title">Alumnos inscritos</h4>
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">1º apellido</th>
+                      <th scope="col">2º apellido</th>
+                      <th scope="col">Curso</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      {% for alumno in alumnos %}
+                    <tr>
+                      <td>{{ alumno.nombre }}</td>
+                      <td>{{ alumno.apellido1 }}</td>
+                      <td>{{ alumno.apellido2 }}</td>
+                      <td>{{ alumno.curso }}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+                {% if not alumnos %}
+                  No hay alumnos inscritos
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Jumbotron -->
+  </section>
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "base_index.html" %}
+
+{% load static %}
+
+{% block content %}
+
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 align-items-center my-5">
+            <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'img/home_juegos.jpg' %}" alt="Niños jugando" /></div>
+            <div class="col-lg-5">
+                <h2>Gestión de actividades extraescolares</h2>
+                <p class="lead">Si estás buscando una forma fácil y sencilla de organizar tus actividades extraescolares, nuestra aplicación web es la solución perfecta para ti. 
+                    Podrás gestionar tus actividades de manera eficiente y mantener una visión clara de todo lo que tienes que hacer.
+                    Crea un calendario personalizado con todas tus actividades, manten una buena organización
+                     y evita conflictos de tiempo. Nuestra interfaz es intuitiva y fácil de usar, por lo que podrás empezar a gestionar tus actividades de manera rápida y eficiente.</p>
+            </div>
+        </div>
+        <div class="row gx-4 gx-lg-5">
+            <div class="col-md-4 mb-5">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col d-flex justify-content-center align-items-center mb-2"><i class="fa-solid fa-school fa-2xl"></i></div>
+                            <div class="col-9"><h2 class="card-title">Colegios</h2></div>
+                        </div>
+                        
+                        <p class="card-text">Organiza un calendario semanal personalizado donde ofertar las actividades que tú elijas. Permite a tus alumnos inscribirse en ellas 
+                            de forma rápida y sencilla.
+                         </p>
+                    </div>
+                    <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'centrologin' %}">Accede ya</a></div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-5">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col d-flex justify-content-center align-items-center mb-2"><i class="fa-solid fa-chalkboard-user fa-2xl"></i></div>
+                            <div class="col-9"><h2 class="card-title">Tutores</h2></div>
+                        </div>    
+                        <p class="card-text">Conoce las actividades que te ofrece tu centro y sus correrspondientes horarios. Realiza las inscripciones y obten 
+                            información sobre los grupos formados.
+                        </p>
+                    </div>
+                    <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'tutorlogin' %}">Accede ya</a></div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-5">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col d-flex justify-content-center align-items-center mb-2"><i class="fa-solid fa-money-check fa-2xl"></i></div>
+                            <div class="col-9"><h2 class="card-title">Proveedores</h2></div>
+                        </div> 
+                        <p class="card-text">Da de alta tus actividades para que puedan ser ofertadas por los distintos centros educativos. Conoce qué grupos se han formado y
+                             qué actividades se llevarán a cabo. </p>
+                    </div>
+                    <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'proveedorlogin' %}">Accede ya</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+        

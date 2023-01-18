@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/geacex
+    depends_on:
+      - db
+  db:
+    image: postgres:15.1-alpine
+    user: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: geacexdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: GeacexAdmin2022
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+volumes:
+  postgres_data:

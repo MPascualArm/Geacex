@@ -1,0 +1,46 @@
+{% extends "base_index.html" %}
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="">
+    <!-- Jumbotron -->
+    <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-color: hsl(0, 0%, 96%)">
+      <div class="container">
+        <div class="row gx-lg-5 align-items-center">
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <h1 class="my-5 display-3 fw-bold ls-tight">
+              Proveedores <br />
+              <span class="text-primary">de actividades</span>
+            </h1>
+            <p style="color: hsl(217, 10%, 50.8%)">
+              Da de alta de forma ágil las actividades que ofreces, para que puedan ser ofertadas por los centros educativos.
+              Conoce qué grupos y en qué centros se han formado para dar el mejor servicio posible.
+            </p>
+          </div>
+  
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <div class="card">
+              <div class="card-body py-5 px-md-5">
+                {% for message in messages %}
+                  <div class="alert {{ message.tags }}">{{message}}</div>
+                {% endfor %}
+                <form action="" method="post" name="form">
+                    {% crispy form %}
+                </form>
+                <div class="text-center">
+                    <p>¿No estás registrado? <a href="{% url 'proveedorregistro' %}">Hazlo aquí</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Jumbotron -->
+  </section>
+
+{% endblock %}

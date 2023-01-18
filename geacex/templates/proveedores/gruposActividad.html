@@ -1,0 +1,74 @@
+{% extends "base_area.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="">
+  <!-- Jumbotron -->
+  <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-color: hsl(0, 0%, 96%)">
+    <div class="container">
+      <div class="row gx-lg-5 align-items-center justify-content-center">
+        <div class="col-lg-9 mb-5 mb-lg-0">
+          <div class="card">
+            <div class="card-body py-5 px-md-5">
+              {% for message in messages %}
+                <div class="alert {{ message.tags }}">{{message}}</div>
+              {% endfor %}
+              <h4 class="card-title text-center">Mi actividad</h4>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Min. alumnos</th>
+                    <th scope="col">Max. alumnos</th>
+                    <th scope="col">Precio</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{ actividad.nombre }}</td>
+                    <td>{{ actividad.min_alumnos }}</td>
+                    <td>{{ actividad.max_alumnos }}</td>
+                    <td>{{ actividad.precio }}</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h4 class="card-title text-center">Grupos de mi actividad</h4>
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Centro</th>
+                    <th scope="col">Horarios</th>
+                    <th scope="col">Alumnos inscritos</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% if grupos %}
+                      {% for grupo in grupos %}
+                        <tr>
+                          <td>{{ grupo.centro }}</td>
+                          <td>
+                          {% for franja in grupo.franjas.all %}
+                            {{ franja }}<br/>
+                          {% endfor %}
+                          </td>
+                          <td>{{ grupo.alumnos.count }}</td>
+                        </tr>   
+                      {% endfor %}
+                    {% else %}  
+                      <td class="text-center">Esta actividad no está asignada en ningún grupo</td>
+                    {% endif %}  
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Jumbotron -->
+</section>
+
+{% endblock %}
